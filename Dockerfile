@@ -27,5 +27,5 @@ RUN apk add --no-cache --virtual .build-deps \
     make modules -j$(nproc) && \
     mv ./objs/*.so /
 
-FROM nginx:alpine
+FROM nginx:stable-alpine
 COPY --from=builder /ngx_rtmp_module.so /usr/lib/nginx/modules/
